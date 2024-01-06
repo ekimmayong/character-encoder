@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="xunit" Version="2.6.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Base64Encoder.Domain\Base64Encoder.Domain.csproj" />
+    <ProjectReference Include="..\Base64Encoder.Infrastructure\Base64Encoder.Infrastructure.csproj" />
+    <ProjectReference Include="..\Base64Encoder\Base64Encoder.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ControllerUnitTest\" />
+  </ItemGroup>
+
+</Project>
