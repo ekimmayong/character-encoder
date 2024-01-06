@@ -20,13 +20,13 @@ function CharacterEncoder() {
           { text: textToEncode },
           {
             responseType: 'text',
+            cancelToken: cancelToken.current.token
           }
         );
         
         const encodedBytes = Array.from(response.data);
 
         for (const byte of encodedBytes) {
-          console.log(byte);
           setEncodedText((prevText) => prevText + byte);
           await new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * 4000) + 1000)); // 1-5 seconds pause
         }
@@ -42,9 +42,15 @@ function CharacterEncoder() {
     }
   };
 
-  const cancelEncoding = () => {
-    if (cancelToken.current) {
-      cancelToken.current.cancel('Encoding process canceled by user');
+  const cancelEncoding = async() => {
+    let source = axios.CancelToken.source();
+    try{
+      if (cancelToken.current) {
+        cancelToken.current.cancel('Encoding process canceled');
+      }
+    }
+    catch(error){
+      console.log(error)
     }
   };
 
@@ -62,7 +68,7 @@ function CharacterEncoder() {
                 />
             </div>
         
-            <div className='mb-3'>
+            <div className='mb-3 d-flex justify-content-center'>
                 <button className='btn btn-primary me-2' onClick={encodeText} disabled={isEncoding}>
                     Convert
                 </button>
@@ -71,9 +77,11 @@ function CharacterEncoder() {
                 </button>
             </div>
 
-            <div className='d-block'>
-                <label className='form-label' htmlFor="encodedText">Encoded Text:</label>
-                <h1>{encodedText}</h1>
+            <div className='d-flex flex-column justify-content-center'>
+                <label className='form-label text-center text-uppercase' htmlFor="encodedText">Encoded Text:</label>
+                <h1 name='encodedText' className='text-center text-wrap fw-semi-bold text-decoration-underline'>
+                  {encodedText}
+                </h1>
             </div>
         </div>
         

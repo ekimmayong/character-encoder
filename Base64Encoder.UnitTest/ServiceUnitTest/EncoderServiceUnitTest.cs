@@ -26,7 +26,7 @@ namespace Base64Encoder.UnitTest.ServiceUnitTest
             async Task CharacterHandler(char character)
             {
                 resultBuilder.Append(character);
-                await Task.Delay(0); // Dummy delay
+                await Task.Delay(2000); // Dummy delay
             }
 
             var cancellationToken = new CancellationToken();
@@ -49,7 +49,7 @@ namespace Base64Encoder.UnitTest.ServiceUnitTest
             async Task CharacterHandler(char character)
             {
                 resultBuilder.Append(character);
-                await Task.Delay(0); // Dummy delay
+                await Task.Delay(2000); // Dummy delay
             }
 
             var cancellationToken = new CancellationTokenSource();
