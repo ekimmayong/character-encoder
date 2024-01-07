@@ -1,0 +1,16 @@
+Base64Encoder/obj/
+Base64Encoder/bin/
+Base64Encoder/Base64Encoder.csproj.user
+.vs/
+
+Base64Encoder.UnitTest/bin/
+Base64Encoder.UnitTest/obj/
+
+Base64Encoder.Infrastructure/obj/
+Base64Encoder.Infrastructure/bin/
+
+Base64Encoder.Domain/obj/
+Base64Encoder.Domain/bin/
+
+Base64Encoder/appsettings.json
+Base64Encoder/appsettings.Development.json
